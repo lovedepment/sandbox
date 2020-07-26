@@ -1,0 +1,12 @@
+# Maven
+target/
+
+# InteliJ
+.idea/
+*.iml
+
+# Eclise
+.project
+.classpath
+.settings/
+/.metadata
