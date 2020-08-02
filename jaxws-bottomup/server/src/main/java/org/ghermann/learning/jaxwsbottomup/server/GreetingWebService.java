@@ -1,26 +1,24 @@
 package org.ghermann.learning.jaxwsbottomup.server;
 
 import javax.jws.WebService;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebService
 public class GreetingWebService {
-    private static final String WELCOME_MESSAGE = "Welcome to Budapest1";
-
     public String greet(String firstName, String lastName) {
         return "Hello " + firstName + " " + lastName + "!";
-    }
-
-    public String greetDetailed(String firstName, String lastName) {
-        return greet(firstName, lastName) + "\n"
-            + WELCOME_MESSAGE + "\n";
     }
 
     public String greetWithTitle(String title, String firstName, String lastName) {
         return "Hello " + title + " " + firstName + " " + lastName + "!";
     }
 
-    public String greetWithTitleDetailed(String title, String firstName, String lastName) {
-        return greetWithTitle(title, firstName, lastName)  + "\n"
-            + WELCOME_MESSAGE + "\n";
+    public List<String> massGreet(Person[] persons) {
+        List<String> result = new ArrayList<>();
+        for (Person person: persons) {
+            String greeting = greetWithTitle(person.getTitle(), person.getFirstName(), person.getLastName());
+        }
+        return result;
     }
 }
