@@ -18,6 +18,16 @@
             <groupId>io.thorntail</groupId>
             <artifactId>webservices</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>jaxrs-jaxb</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.thorntail</groupId>
+                    <artifactId>jaxrs</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>
