@@ -5,11 +5,12 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 
 @WebService(name = "GreetingServiceInterface",
             serviceName="GreetingService", portName = "GreetingServicePort")
-@SOAPBinding(style = Style.RPC)
+@SOAPBinding(style = Style.DOCUMENT, parameterStyle = ParameterStyle.BARE)
 public class GreetingWebService {
     private static final int NAME_LENGTH_MAX = 100;
 
