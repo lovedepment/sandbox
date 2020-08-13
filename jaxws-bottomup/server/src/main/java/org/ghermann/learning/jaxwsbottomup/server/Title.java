@@ -1,15 +1,10 @@
 package org.ghermann.learning.jaxwsbottomup.server;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-
-@XmlEnum(Byte.class)
 public enum Title {
-
-    @XmlEnumValue("0") MR,
-    @XmlEnumValue("1") MS,
-    @XmlEnumValue("2") MRS,
-    @XmlEnumValue("42") DON;
+     MR,
+     MS,
+     MRS,
+     DON;
 
     public String toString() {
         switch (this) {

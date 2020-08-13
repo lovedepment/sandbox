@@ -1,16 +1,10 @@
 package org.ghermann.learning.jaxwsbottomup.server;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlType(name="Person", propOrder = {"title", "firstName", "lastName"})
 public class Person {
     private Title title;
     private String firstName;
     private String lastName;
 
-    @XmlAttribute(required = true)
     public Title getTitle() {
         return title;
     }
@@ -19,7 +13,6 @@ public class Person {
         this.title = title;
     }
 
-    @XmlElement(required = true)
     public String getFirstName() {
         return firstName;
     }
@@ -28,7 +21,6 @@ public class Person {
         this.firstName = firstName;
     }
 
-    @XmlElement(required = true)
     public String getLastName() {
         return lastName;
     }
