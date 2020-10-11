@@ -1,4 +1,4 @@
-package org.ghermann.learning.jaxwsbottomup.server;
+package org.ghermann.learning.jwsbottomup;
 
 public enum Title {
      MR,
