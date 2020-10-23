@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsdl:definitions targetNamespace="http://ws.learning.gubenc.org"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://ws.learning.gubenc.org"
+                  name="GreetingDocumentWebService">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://ws.learning.gubenc.org">
+            <xsd:element name="sayHello" type="tns:SayHelloType"/>
+            
+            <xsd:complexType name="SayHelloType">
+                <xsd:sequence>
+                    <xsd:element name="title" type="xsd:string"/>
+                    <xsd:element name="firstName" type="xsd:string"/>
+                    <xsd:element name="lastNameName" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:element name="sayHelloResponse" type="tns:SayHelloResponseType"/>
+            
+            <xsd:complexType name="SayHelloResponseType">
+                <xsd:sequence>
+                    <xsd:element name="greeting" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:element name="emptyNameException" type="tns:EmptyName"/>
+            <xsd:complexType name="EmptyName">
+                <xsd:sequence/>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="sayHello">
+        <wsdl:part name="parameters" element="tns:sayHello"/>
+    </wsdl:message>
+    <wsdl:message name="sayHelloResponse">
+        <wsdl:part name="return" element="tns:sayHelloResponse"/>
+    </wsdl:message>
+    <wsdl:message name="emptyNameException">
+        <wsdl:part name="emptyNameException" element="tns:emptyNameException"/>
+    </wsdl:message>
+
+    <wsdl:portType name="GreetingDocumentService">
+        <wsdl:operation name="sayHello">
+            <wsdl:input name="sayHello" message="tns:sayHello" />
+            <wsdl:output name="sayHelloResponse" message="tns:sayHelloResponse"/>
+            <wsdl:fault name="emptyNameException" message="tns:emptyNameException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="GreetingDocumentServiceBinding" type="tns:GreetingDocumentService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="sayHello">
+            <wsdl:input name="sayHello">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="sayHelloResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="emptyNameException">
+                <soap:body use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="GreetingDocumentWebService">
+        <wsdl:port name="GreetingEndpoint" binding="tns:GreetingDocumentServiceBinding">
+            <soap:address location="http://localhost:8080/GreetingDocumentWebService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
