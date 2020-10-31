@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="run-greeting-client" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="org.gubenc.learning.ws.client.GreetingDocumentWebServiceClient" />
+    <module name="client" />
+    <option name="VM_PARAMETERS" value="-Xms200m -Xmx200m" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/jaxws-topdown/client" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
