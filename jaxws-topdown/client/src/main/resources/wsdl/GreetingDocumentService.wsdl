@@ -8,6 +8,7 @@
     <wsdl:types>
         <xsd:schema targetNamespace="http://ws.learning.gubenc.org">
             <xsd:element name="sayHello" type="tns:SayHelloType"/>
+            
             <xsd:complexType name="SayHelloType">
                 <xsd:sequence>
                     <xsd:element name="title" type="xsd:string"/>
@@ -17,6 +18,7 @@
             </xsd:complexType>
 
             <xsd:element name="sayHelloResponse" type="tns:SayHelloResponseType"/>
+            
             <xsd:complexType name="SayHelloResponseType">
                 <xsd:sequence>
                     <xsd:element name="greeting" type="xsd:string"/>
@@ -65,7 +67,7 @@
 
     <wsdl:service name="GreetingDocumentWebService">
         <wsdl:port name="GreetingEndpoint" binding="tns:GreetingServiceBinding">
-            <soap:address location="http://localhost:8080/server/GreetingDocumentWebService/GreetingEndpoint"/>
+            <soap:address location="http://localhost:8080/GreetingDocumentWebService/GreetingEndpoint"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

@@ -17,7 +17,15 @@
         <version.wildfly>20.0.1.Final</version.wildfly>
         <version.wildfly-plugin>2.0.2.Final</version.wildfly-plugin>
         <version.apache-cxf>3.3.6</version.apache-cxf>
+        <version.jbossws-cxf-client>5.4.1.Final</version.jbossws-cxf-client>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>JBoss Repository</id>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -28,7 +36,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.jboss.ws.cxf</groupId>
+                <artifactId>jbossws-cxf-client</artifactId>
+                <version>${version.jbossws-cxf-client}</version>
+            </dependency>
         </dependencies>
+
+
     </dependencyManagement>
 
     <build>
@@ -98,5 +114,6 @@
 
     <modules>
         <module>server</module>
+        <module>client</module>
     </modules>
 </project>
